@@ -124,6 +124,35 @@ const TopbarDesktop = props => {
     </NamedLink>
   );
 
+  const aboutLink = isAuthenticatedOrJustHydrated ? null : (
+    <NamedLink name="SignupPage" className={css.signupLink}>
+      <span className={css.signup}>
+        <FormattedMessage id="TopbarDesktop.about" />
+      </span>
+    </NamedLink>
+  );
+  const howItWorksLink = isAuthenticatedOrJustHydrated ? null : (
+    <NamedLink name="SignupPage" className={css.signupLink}>
+      <span className={css.signup}>
+        <FormattedMessage id="TopbarDesktop.howItWorks" />
+      </span>
+    </NamedLink>
+  );
+  const termsOfUseLink = isAuthenticatedOrJustHydrated ? null : (
+    <NamedLink name="SignupPage" className={css.signupLink}>
+      <span className={css.signup}>
+        <FormattedMessage id="TopbarDesktop.termsOfUse" />
+      </span>
+    </NamedLink>
+  );
+  // const moreLink = isAuthenticatedOrJustHydrated ? null : (
+  //   <NamedLink name="SignupPage" className={css.signupLink}>
+  //     <span className={css.signup}>
+  //       <FormattedMessage id="TopbarDesktop.about" />
+  //     </span>
+  //   </NamedLink>
+  // );
+
   const loginLink = isAuthenticatedOrJustHydrated ? null : (
     <NamedLink name="LoginPage" className={css.loginLink}>
       <span className={css.login}>
@@ -142,15 +171,18 @@ const TopbarDesktop = props => {
         />
       </NamedLink>
       {search}
+      {inboxLink}
+      {profileMenu}
+      {aboutLink}
+      {howItWorksLink}
+      {termsOfUseLink}
+      {signupLink}
+      {loginLink}
       <NamedLink className={css.createListingLink} name="NewListingPage">
         <span className={css.createListing}>
           <FormattedMessage id="TopbarDesktop.createListing" />
         </span>
       </NamedLink>
-      {inboxLink}
-      {profileMenu}
-      {signupLink}
-      {loginLink}
     </nav>
   );
 };
